@@ -1,0 +1,18 @@
+{
+  "name": "simple-datastream-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ngneat/falso": "^7.2.0",
+    "kafkajs": "^2.2.4",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.45"
+  }
+}

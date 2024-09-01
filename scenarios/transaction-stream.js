@@ -1,6 +1,6 @@
 // producer.js
 import { Kafka } from 'kafkajs';
-import { randFloat } from '@ngneat/falso';
+import { randFloat, randNumber } from '@ngneat/falso';
 import moment from 'moment';
 
 const kafka = new Kafka({
@@ -18,6 +18,7 @@ const runProducer = async () => {
   while(true) {
     const value = JSON.stringify({ 
       timestamp: dateCounter.valueOf(),
+      accountId: randNumber({ min:1, max:5 }),
       amount: randFloat({ min: 0.1, max: 500, fraction: 1 })
     });
 

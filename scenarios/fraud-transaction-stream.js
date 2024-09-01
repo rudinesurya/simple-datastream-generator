@@ -18,7 +18,7 @@ const runProducer = async () => {
   while(true) {
     const value = JSON.stringify({ 
       timestamp: dateCounter.valueOf(),
-      
+      amount: randFloat({ min: 0.1, max: 500, fraction: 1 })
     });
 
     await producer.send({

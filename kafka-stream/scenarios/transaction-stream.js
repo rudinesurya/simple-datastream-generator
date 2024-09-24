@@ -14,16 +14,18 @@ const runProducer = async () => {
   await producer.connect();
 
   var dateCounter = moment();
+  var id = 0;
 
   while(true) {
     const value = JSON.stringify({ 
+      id: id,
       timestamp: dateCounter.valueOf(),
       accountId: randNumber({ min:1, max:5 }),
       amount: randFloat({ min: 0.1, max: 500, fraction: 1 })
     });
 
     await producer.send({
-      topic: 'test',
+      topic: 'test-2',
       messages: [
         { value: value }
       ],
@@ -34,6 +36,7 @@ const runProducer = async () => {
     // Simulate a delay (e.g., 1 second)
     await new Promise(resolve => setTimeout(resolve, 1000));
     dateCounter = moment(dateCounter).add(1, 'minutes');
+    id++;
   }
 
   await producer.disconnect();
